@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "msg-broker",
+  "version": "1.0.0",
+  "dependencies": [
+    "gtest",
+    "boost-asio",
+    "boost-pool",
+    "protobuf"
+  ]
+}

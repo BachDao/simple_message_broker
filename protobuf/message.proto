@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package msg_broker;
+
+enum MessageType{
+  RESERVED = 0;
+  CONNECT = 1;
+  CONNECT_ACK = 2;
+  DISCONNECT = 3;
+  TOPIC_SUBSCRIBE = 4;
+  TOPIC_UNSUBSCRIBE = 5;
+  NORMAL = 6;
+};
+
+message ProtoMessage{
+  MessageType type = 1;
+  string client_id = 2;
+  optional string topic = 3;
+  optional string payload = 4;
+}
