@@ -20,8 +20,11 @@ int main() {
 
     auto ptrTopic = ptrClient->subscribe("topic_name");
 
-    ptrTopic->on_message(
-        [](std::string msg) { std::cout << "receive message" << std::endl; });
+    ptrTopic->on_message([](const std::string &msg) {
+      std::cout << "receive message" << std::endl;
+    });
+
+    ptrTopic->unsubscribe();
 
     ptrClient->start();
 
@@ -31,6 +34,7 @@ int main() {
       if (!ptrTopic->send_message("counter" + std::to_string(counter++)))
         break;
     }
+
   } catch (...) {
   }
   return 0;

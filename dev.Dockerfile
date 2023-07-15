@@ -11,7 +11,7 @@
 # ssh credentials (test user):
 #   root@root
 
-FROM alpine:latest
+FROM spritsail/alpine:latest
 
 RUN apk add --no-cache cmake --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
 
@@ -20,7 +20,6 @@ RUN apk add --update openssh\
     g++\
     clang\
     gdb\
-    cmake\
     ninja\
     autoconf\
     automake\
@@ -48,7 +47,13 @@ RUN ( \
 RUN /usr/bin/ssh-keygen -A
 
 #clone code and build
+RUN git clone https://github.com/BachDao/simple_message_broker
 
+RUN /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug\
+    -DCMAKE_MAKE_PROGRAM=/usr/bin/ninja\
+    -G Ninja\
+    -S /simple_message_broker\
+    -B /simple_message_broker/cmake-build-debug
 
 # run ssh server
 CMD ["/usr/sbin/sshd", "-D"]
