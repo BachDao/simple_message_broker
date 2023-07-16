@@ -23,16 +23,12 @@ int main() {
     ptrTopic->on_message([](const std::string &msg) {
       std::cout << "receive message" << std::endl;
     });
-
-    ptrTopic->unsubscribe();
-
     ptrClient->start();
 
     int counter = 0;
     while (true) {
       std::this_thread::sleep_for(500ms);
-      if (!ptrTopic->send_message("counter" + std::to_string(counter++)))
-        break;
+      ptrTopic->send_message("counter" + std::to_string(counter++));
     }
 
   } catch (...) {

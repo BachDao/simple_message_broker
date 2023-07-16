@@ -6,6 +6,7 @@
 
 #include "msg_broker/server/server_topic.h"
 
+#include <cassert>
 #include <string>
 
 namespace msg_broker::server {

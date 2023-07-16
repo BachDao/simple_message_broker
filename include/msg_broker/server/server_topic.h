@@ -6,6 +6,7 @@
 #define SIMPLE_BROKER_SERVER_TOPIC_H
 #include "msg_broker/forward_declarations.h"
 
+#include <memory>
 #include <mutex>
 #include <string>
 #include <unordered_map>

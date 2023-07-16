@@ -37,8 +37,11 @@ cmake --build /simple_message_broker/cmake-build-debug
 ```
 
 **Notes**
-+ Dockerfile is also provided for easier deployment, but currently it's seem have problem with Vcpkg when using on Alpine
-image. I will try to solve it and put docker image here later.
++ ~~Dockerfile is also provided for easier deployment, but currently it seems to have a problem with Vcpkg when using on 
+Alpine image. I will try to solve it and put docker image here later.~~
+
++ **Update:**: I use Ubuntu as base image and add new dockerfile: **ubuntu_dev.Dockerfile**, prebuilt image can be 
+found at this [link](https://hub.docker.com/u/bachdao)
 
 Usages
 ------
